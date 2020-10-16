@@ -4,8 +4,10 @@ using UnityEngine;
 using System;
 
 [Serializable]
-internal class StatusFrame
+internal class StatusFrame: BaseFrame
 {
+    [SerializeField]
+    public new string FrameType = "StatusFrame";
     [SerializeField]
     public PlayerStatus[] status;
 }

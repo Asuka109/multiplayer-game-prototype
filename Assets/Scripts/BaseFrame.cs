@@ -4,10 +4,10 @@ using UnityEngine;
 using System;
 
 [Serializable]
-internal class ActionFrame: BaseFrame
+internal class BaseFrame
 {
     [SerializeField]
-    public new string FrameType = "ActionFrame";
+    public new string FrameType = "BaseFrame";
     [SerializeField]
-    public PlayerAction[] actions;
+    public int Id;
 }

@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.psygame.unitywebsocket": {
+      "version": "https://github.com/psygame/UnityWebSocket.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b359962f14510ecb70a0c66c288e6c0c22ee9912"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,
