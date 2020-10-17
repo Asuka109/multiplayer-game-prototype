@@ -225,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452314658}
   - component: {fileID: 452314659}
+  - component: {fileID: 452314660}
   m_Layer: 0
   m_Name: PlayerSlot
   m_TagString: Untagged
@@ -256,6 +257,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28f23d2055d47354394cb346b6cf07fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &452314660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452314657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753c1304ae3f4710b4e59de7bb5cc9e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 3445187357352132352, guid: 796c358949ee5c54d920a33801e8713a,

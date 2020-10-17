@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
-namespace Network
+namespace Network.Controller.PlayerManger
 {
     public class ShadowController: MonoBehaviour
     {
