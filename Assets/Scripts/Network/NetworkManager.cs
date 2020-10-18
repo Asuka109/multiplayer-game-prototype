@@ -1,5 +1,8 @@
+using System;
 using Network.Frame;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityWebSocket;
 
 namespace Network
@@ -7,7 +10,9 @@ namespace Network
 	public class NetworkManager : MonoBehaviour
 	{
 		public WebSocket Socket { get; private set; }
-	
+		public string serverUri;
+		public string userId;
+
 		public event StatusFrameDelegate OnStatusFrame;
 		public delegate void StatusFrameDelegate(StatusFrame frame);
 		public event ActionFrameDelegate OnActionFrame;
@@ -17,16 +22,19 @@ namespace Network
 
 		private void Start()
 		{
+			if (string.IsNullOrEmpty(serverUri))
+				throw new ApplicationException ("Server Uri cannot be empty.");
+			if (string.IsNullOrEmpty(userId))
+				throw new ApplicationException ("User Id cannot be empty.");
+				
 			// Create websocket client instance
-			const string address = "ws://localhost:3000";
-			var socket = new WebSocket(address);
-			Socket = socket;
+			Socket = new WebSocket(serverUri);
 
 			// Register callbacks
-			socket.OnOpen += (sender, e) => Debug.Log("WebSocket: OnOpen");
-			socket.OnClose += (sender, e) => Debug.Log("WebSocket: OnClose");
-			socket.OnError += (sender, e) => Debug.Log("WebSocket: OnError");
-			socket.OnMessage += (sender, e) => {
+			Socket.OnOpen += (sender, e) => Debug.Log("WebSocket: OnOpen");
+			Socket.OnClose += (sender, e) => Debug.Log("WebSocket: OnClose");
+			Socket.OnError += (sender, e) => Debug.Log("WebSocket: OnError");
+			Socket.OnMessage += (sender, e) => {
 				var frame = JsonUtility.FromJson<BaseFrame>(e.Data);
 				switch (frame.frameType)
 				{
@@ -49,12 +57,12 @@ namespace Network
 			};
 
 			// Start connect
-			socket.ConnectAsync();
+			Socket.ConnectAsync();
 
 			// Send Ready sign
-			var readyFrame = new InfoFrame("Ready");
+			var readyFrame = new InfoFrame(userId, "Ready");
 			var jsonStr = JsonUtility.ToJson(readyFrame);
-			socket.SendAsync(jsonStr);
+			Socket.SendAsync(jsonStr);
 		}
 
 		private void OnDestroy()
@@ -63,25 +71,5 @@ namespace Network
 			Socket.CloseAsync();
 		}
 
-		private void Update()
-		{
-			HandleUserInput();
-		}
-	
-		private const float InputHandingInterval = 0.05f;
-		private float _lastInputTime = 0f;
-	
-		private void HandleUserInput()
-		{
-			// Throttled handler: 20 per sec
-			if (Time.time - _lastInputTime < InputHandingInterval) return;
-			_lastInputTime = Time.time;
-			// Send user input to server
-			var moveX = Input.GetAxisRaw("Horizontal");
-			var moveY = Input.GetAxisRaw("Vertical");
-			var frame = ActionFrame.FromActionMovement("asd", new Vector2(moveX, moveY));
-			var jsonStr = JsonUtility.ToJson(frame);
-			Socket.SendAsync(jsonStr);
-		}
 	}
 }

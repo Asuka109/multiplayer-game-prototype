@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using Network.Frame;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Network.Controller.PlayerManger
+namespace Network.Controller.SimplePlayerController
 {
     [RequireComponent(typeof(NetworkManager))]
-    public class SimplePlayerManager: MonoBehaviour
+    public class RemoteController: MonoBehaviour
     {
         public GameObject playerPrefab;
 
@@ -15,36 +14,44 @@ namespace Network.Controller.PlayerManger
         public float lerpSpeed = 6f;
     
         private NetworkManager _wsManager;
-        private PlayerStatus[] _shadowStatus;
+        private LocalController _localController;
 
         private void Start()
         {
             _wsManager = GetComponent<NetworkManager>();
             _wsManager.OnStatusFrame += InitStatus;
             _wsManager.OnActionFrame += ApplyAction;
+            _localController = GetComponent<LocalController>();
         }
     
         private Dictionary<string, GameObject> _playerInstances;
 	
         private void InitStatus(StatusFrame frame) {
             // Destroy children 
-            for (var i = 0; i < transform.childCount ; i++)
-                Destroy (transform.GetChild (0).gameObject);
+            if (_playerInstances != null) foreach (var instance in _playerInstances.Values)
+                Destroy(instance);
         
-            // Create players' GameObject
             var playerInstances = new Dictionary<string, GameObject>();
             foreach (var initStatus in frame.status) {
+                // Create GameObject
                 var position = new Vector3(initStatus.Position.x, 0f, initStatus.Position.y);
                 var player = Instantiate(playerPrefab, transform);
                 player.transform.position = position;
+                player.name = initStatus.userId;
+                // Set the initial value of the shadowController.lerpSpeed
                 var shadowController = player.GetComponent<ShadowController>();
                 if (shadowController == null)
                 {
                     shadowController = player.AddComponent<ShadowController>();
                     shadowController.lerpSpeed = lerpSpeed;
                 }
-                shadowController.shadowPosition = initStatus.Position;
-                playerInstances.Add(initStatus.id, player);
+                shadowController.RemotePosition = initStatus.Position;
+                // Update LocalController's GameObject
+                Debug.Log("_localController: " + _localController);
+                if (_localController != null)
+                    _localController.PlayerGameObject = player;
+                
+                playerInstances.Add(initStatus.userId, player);
             }
             _playerInstances = playerInstances;
         }
@@ -54,10 +61,10 @@ namespace Network.Controller.PlayerManger
             // Update GameObjects' status
             foreach (var action in actionFrame.actions)
             {
-                var gameObj = _playerInstances[action.id];
+                var gameObj = _playerInstances[action.userId];
                 var movement = action.Movement;
                 var shadowController = gameObj.GetComponent<ShadowController>();
-                shadowController.shadowPosition += movement;
+                shadowController.RemotePosition += movement;
             }
         }
 

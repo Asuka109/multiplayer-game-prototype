@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Desmond\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Desmond\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_MultiplayerPrototype.-395882640.00" t="ExcludeRecursive" />
+    <e p="F:\GithubStore\MultiplayerPrototype" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Network" t="Include">
+            <e p="Controller" t="Include">
+              <e p="SimplePlayerController" t="Include">
+                <e p="LocalController.cs" t="Include" />
+                <e p="RemoteController.cs" t="Include" />
+                <e p="ShadowController.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Frame" t="Include">
+              <e p="ActionFrame.cs" t="Include" />
+              <e p="BaseFrame.cs" t="Include" />
+              <e p="InfoFrame.cs" t="Include" />
+              <e p="PlayerAction.cs" t="Include" />
+              <e p="PlayerStatus.cs" t="Include" />
+              <e p="StatusFrame.cs" t="Include" />
+            </e>
+            <e p="NetworkManager.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="MultiplayerPrototype.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

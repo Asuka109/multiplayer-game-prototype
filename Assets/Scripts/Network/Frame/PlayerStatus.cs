@@ -6,7 +6,7 @@ namespace Network.Frame
     [Serializable]
     public class PlayerStatus
     {
-        public string id;
+        public string userId;
         public int[] pos;
 
         public Vector2 Position
