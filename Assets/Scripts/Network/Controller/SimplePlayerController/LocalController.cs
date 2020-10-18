@@ -16,6 +16,8 @@ namespace Network.Controller.SimplePlayerController
                 _shadowController = _player.GetComponent<ShadowController>();
             }
         }
+
+        public float moveSpeed = 0.2f;
         private GameObject _player;
         private ShadowController _shadowController;
         private NetworkManager _wsManager;
@@ -43,7 +45,7 @@ namespace Network.Controller.SimplePlayerController
             var moveX = Input.GetAxisRaw("Horizontal");
             var moveY = Input.GetAxisRaw("Vertical");
             var movement = new Vector2(moveX, moveY);
-            _shadowController.shadowPosition += movement;
+            _shadowController.shadowPosition += movement * moveSpeed;
             // Send user input to server
             var frame = ActionFrame.FromActionMovement(_wsManager.userId, movement);
             var jsonStr = JsonUtility.ToJson(frame);

@@ -8,7 +8,8 @@ namespace Network.Controller.SimplePlayerController
     public class RemoteController: MonoBehaviour
     {
         public GameObject playerPrefab;
-
+        public float moveSpeed = 0.2f; 
+        
         [Header("ShadowController")]
         [Range(1f, 15f)]
         public float lerpSpeed = 6f;
@@ -46,6 +47,7 @@ namespace Network.Controller.SimplePlayerController
                     shadowController.lerpSpeed = lerpSpeed;
                 }
                 shadowController.RemotePosition = initStatus.Position;
+                shadowController.shadowPosition = initStatus.Position;
                 // Update LocalController's GameObject
                 Debug.Log("_localController: " + _localController);
                 if (_localController != null)
@@ -64,7 +66,7 @@ namespace Network.Controller.SimplePlayerController
                 var gameObj = _playerInstances[action.userId];
                 var movement = action.Movement;
                 var shadowController = gameObj.GetComponent<ShadowController>();
-                shadowController.RemotePosition += movement;
+                shadowController.RemotePosition += movement * moveSpeed;
             }
         }
 

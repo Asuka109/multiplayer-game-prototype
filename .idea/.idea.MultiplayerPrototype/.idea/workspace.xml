@@ -10,18 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="890ea9e1-11b5-47ab-9083-fb0a70ea92f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/LocalController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/LocalController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/PlayerManger.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/PlayerManger/ShadowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/ShadowController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/PlayerManger/ShadowController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/ShadowController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/PlayerManger/SimplePlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/PlayerManger/SimplePlayerManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/Frame/PlayerStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Frame/PlayerStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/NetworkManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="890ea9e1-11b5-47ab-9083-fb0a70ea92f8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,12 +21,15 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scenes/Game.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/SimplePlayerController/ShadowController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/958B02B1-87A7-4CBD-B623-46D66445CAFE/d5/5b4ea691/Time.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/GithubStore/MultiplayerPrototype/ProjectSettings/AudioManager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/PlayerManger/SimplePlayerManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scenes/Game.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/PlayerManger/ShadowController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Frame/PlayerStatus.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/SimplePlayerController/LocalController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/PlayerPrefab.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.psygame.unitywebsocket@b359962f14/Scripts/Runtime/Core/MessageEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.psygame.unitywebsocket@b359962f14/Scripts/Runtime/Implementation/Synchronized/WebSocketManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -60,14 +52,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/PlayerManger/ShadowController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/PlayerManger/SimplePlayerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/PlayerManger/RemoteController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/ShadowController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Frame/ActionFrame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Frame/PlayerAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Frame/PlayerStatus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Frame/InfoFrame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Network/NetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/LocalController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Network/NetworkManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/ShadowController.cs" />
       </list>
     </option>
   </component>
@@ -124,7 +116,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602858198571</updated>
-      <workItem from="1602858202213" duration="26965000" />
+      <workItem from="1602858202213" duration="36482000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 初版影子跟随 &amp; 网络帧同步">
       <created>1602929501870</created>
@@ -147,7 +139,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602944463639</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor: 重新组织 Network.Controller 结构&#10;&#10;breaking change: 先前的几次提交遗漏了一些文件">
+      <created>1602992684547</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602992684547</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: 添加移动速度属性, 添加调试用 positionMark">
+      <created>1603018005747</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603018005747</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,13 +177,15 @@
     <MESSAGE value="feat: 初版影子跟随 &amp; 网络帧同步" />
     <MESSAGE value="refactor: 优化了代码结构，重新组织网络模块" />
     <MESSAGE value="feat(Network): 自动为 object 添加 shadowController 组件, 优化 Editor 交互" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Network): 自动为 object 添加 shadowController 组件, 优化 Editor 交互" />
+    <MESSAGE value="refactor: 重新组织 Network.Controller 结构&#10;&#10;breaking change: 先前的几次提交遗漏了一些文件" />
+    <MESSAGE value="feat: 添加移动速度属性, 添加调试用 positionMark" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加移动速度属性, 添加调试用 positionMark" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1602861550598">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1603007762723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602861550598" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603007762723" />
     <state x="629" y="118" width="661" height="804" key="find.popup" timestamp="1602989381533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
