@@ -10,7 +10,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="890ea9e1-11b5-47ab-9083-fb0a70ea92f8" name="Default Changelist" comment="" />
+    <list default="true" id="890ea9e1-11b5-47ab-9083-fb0a70ea92f8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MultiplayerPrototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MultiplayerPrototype/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Network/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Network/NetworkManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,22 +24,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scenes/Game.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/SimplePlayerController/ShadowController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/958B02B1-87A7-4CBD-B623-46D66445CAFE/d5/5b4ea691/Time.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/ProjectSettings/AudioManager.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/PlayerManger/SimplePlayerManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scenes/Game.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/PlayerManger/ShadowController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Frame/PlayerStatus.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scripts/Network/Controller/SimplePlayerController/LocalController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/PlayerPrefab.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.psygame.unitywebsocket@b359962f14/Scripts/Runtime/Core/MessageEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.psygame.unitywebsocket@b359962f14/Scripts/Runtime/Implementation/Synchronized/WebSocketManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.psygame.unitywebsocket@b359962f14/Scripts/Runtime/Implementation/Synchronized/WebSocket.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/GithubStore/MultiplayerPrototype/Assets/Scenes/Game.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/958B02B1-87A7-4CBD-B623-46D66445CAFE/d5/5b4ea691/Time.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/958B02B1-87A7-4CBD-B623-46D66445CAFE/76/e68fde9b/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5CAC3F76-5EFB-4A71-98FB-BE8126E46E77/58/ec59f2c0/GUI.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -56,10 +50,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Frame/PlayerAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Frame/PlayerStatus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Frame/InfoFrame.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Network/NetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/LocalController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/ShadowController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Network/Controller/SimplePlayerController/RemoteController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Network/NetworkManager.cs" />
       </list>
     </option>
   </component>
@@ -71,6 +65,7 @@
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -116,7 +111,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602858198571</updated>
-      <workItem from="1602858202213" duration="36482000" />
+      <workItem from="1602858202213" duration="41845000" />
+      <workItem from="1603119486193" duration="110000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 初版影子跟随 &amp; 网络帧同步">
       <created>1602929501870</created>
@@ -171,6 +167,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -182,6 +179,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="feat: 添加移动速度属性, 添加调试用 positionMark" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="806" y="432" key="VCS.ChangelistChooser" timestamp="1603018301027">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="806" y="432" key="VCS.ChangelistChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603018301027" />
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1603007762723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

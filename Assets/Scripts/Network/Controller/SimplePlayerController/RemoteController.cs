@@ -17,12 +17,18 @@ namespace Network.Controller.SimplePlayerController
         private NetworkManager _wsManager;
         private LocalController _localController;
 
+        private Rect _fullscreenRect;
+        private GUIStyle _labelStyle;
+
         private void Start()
         {
             _wsManager = GetComponent<NetworkManager>();
             _wsManager.OnStatusFrame += InitStatus;
             _wsManager.OnActionFrame += ApplyAction;
             _localController = GetComponent<LocalController>();
+            
+            _fullscreenRect = new Rect(0.0f, 0.0f, Screen.width, Screen.height);
+            _labelStyle = new GUIStyle { fontSize = 50, alignment = TextAnchor.MiddleCenter };
         }
     
         private Dictionary<string, GameObject> _playerInstances;
@@ -70,5 +76,11 @@ namespace Network.Controller.SimplePlayerController
             }
         }
 
+        private void OnGUI()
+        {
+            if (_wsManager.Status != NetworkManager.RoomStatus.Idle) return;
+            GUI.DrawTexture(_fullscreenRect, Texture2D.whiteTexture, ScaleMode.StretchToFill);
+            GUI.Label(_fullscreenRect, "Waiting Player", _labelStyle);
+        }
     }
 }

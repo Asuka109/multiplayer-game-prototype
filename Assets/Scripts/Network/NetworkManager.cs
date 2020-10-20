@@ -1,8 +1,6 @@
 using System;
 using Network.Frame;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityWebSocket;
 
 namespace Network
@@ -20,8 +18,18 @@ namespace Network
 		public event InfoFrameDelegate OnInfoFrame;
 		public delegate void InfoFrameDelegate(InfoFrame frame);
 
+		public enum RoomStatus
+		{
+			Idle, Playing
+		}
+
+		public RoomStatus Status { get; private set; }
+		
 		private void Start()
 		{
+			// ONLY FOR DEMO
+			userId = Guid.NewGuid().ToString();
+			
 			if (string.IsNullOrEmpty(serverUri))
 				throw new ApplicationException ("Server Uri cannot be empty.");
 			if (string.IsNullOrEmpty(userId))
@@ -56,13 +64,39 @@ namespace Network
 				}
 			};
 
+			// Exit application while abort by server or lost connect
+			Status = RoomStatus.Idle;
+			OnInfoFrame += UpdateStatusByFrame;
+			Socket.OnClose += (sender, e) => { 
+				Status = RoomStatus.Idle;
+				Application.Quit();
+			};
+			Socket.OnError += (sender, e) => { 
+				Status = RoomStatus.Idle;
+				Application.Quit();
+			};
+
 			// Start connect
 			Socket.ConnectAsync();
 
 			// Send Ready sign
-			var readyFrame = new InfoFrame(userId, "Ready");
+			var readyFrame = new InfoFrame(userId, "ready");
 			var jsonStr = JsonUtility.ToJson(readyFrame);
 			Socket.SendAsync(jsonStr);
+		}
+
+		private void UpdateStatusByFrame(InfoFrame frame)
+		{
+			switch (frame.info)
+			{
+				case "ready":
+					Status = RoomStatus.Playing;
+					break;
+				case "exit":
+					Status = RoomStatus.Idle;
+					Application.Quit();
+					break;
+			}
 		}
 
 		private void OnDestroy()
