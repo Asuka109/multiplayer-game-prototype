@@ -13,6 +13,7 @@
                 <e p="LocalController.cs" t="Include" />
                 <e p="RemoteController.cs" t="Include" />
                 <e p="ShadowController.cs" t="Include" />
+                <e p="StatusInitializer.cs" t="Include" />
               </e>
             </e>
             <e p="Frame" t="Include">

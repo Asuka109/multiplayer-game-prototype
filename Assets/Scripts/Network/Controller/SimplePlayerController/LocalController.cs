@@ -4,27 +4,19 @@ using UnityEngine;
 
 namespace Network.Controller.SimplePlayerController
 {
-    [RequireComponent(typeof(NetworkManager))]
+    [RequireComponent(typeof(ShadowController))]
     public class LocalController : MonoBehaviour
     {
-        public GameObject PlayerGameObject
-        {
-            get => _player;
-            set
-            {
-                _player = value;
-                _shadowController = _player.GetComponent<ShadowController>();
-            }
-        }
-
         public float moveSpeed = 0.2f;
-        private GameObject _player;
-        private ShadowController _shadowController;
+        private GameObject _slotGameObject;
         private NetworkManager _wsManager;
+        private ShadowController _shadowController;
         
         private void Start()
         {
-            _wsManager = GetComponent<NetworkManager>();
+            _slotGameObject = transform.parent.gameObject;
+            _wsManager = _slotGameObject.GetComponent<NetworkManager>();
+            _shadowController = GetComponent<ShadowController>();
         }
 
         private void Update()

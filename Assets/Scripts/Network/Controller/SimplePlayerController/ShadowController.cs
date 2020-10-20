@@ -9,7 +9,7 @@ namespace Network.Controller.SimplePlayerController
         public float lerpSpeed = 6f;
         
         public Vector2 shadowPosition;
-        public bool remotePositionApplyImmediately = false;
+        public bool remotePositionApplyImmediately = true;
         public float maxOffset = 5f;
 
         public bool displayPositionMark = true;

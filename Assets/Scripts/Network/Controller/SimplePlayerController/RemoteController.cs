@@ -1,86 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Network.Frame;
 using UnityEngine;
 
 namespace Network.Controller.SimplePlayerController
 {
-    [RequireComponent(typeof(NetworkManager))]
+    [RequireComponent(typeof(ShadowController))]
     public class RemoteController: MonoBehaviour
     {
-        public GameObject playerPrefab;
-        public float moveSpeed = 0.2f; 
-        
-        [Header("ShadowController")]
-        [Range(1f, 15f)]
-        public float lerpSpeed = 6f;
-    
+        public float moveSpeed = 0.2f;
+        private GameObject _slotGameObject;
         private NetworkManager _wsManager;
-        private LocalController _localController;
-
-        private Rect _fullscreenRect;
-        private GUIStyle _labelStyle;
+        private ShadowController _shadowController;
 
         private void Start()
         {
-            _wsManager = GetComponent<NetworkManager>();
-            _wsManager.OnStatusFrame += InitStatus;
+            _slotGameObject = transform.parent.gameObject;
+            _wsManager = _slotGameObject.GetComponent<NetworkManager>();
+            _shadowController = GetComponent<ShadowController>();
             _wsManager.OnActionFrame += ApplyAction;
-            _localController = GetComponent<LocalController>();
-            
-            _fullscreenRect = new Rect(0.0f, 0.0f, Screen.width, Screen.height);
-            _labelStyle = new GUIStyle { fontSize = 50, alignment = TextAnchor.MiddleCenter };
         }
     
-        private Dictionary<string, GameObject> _playerInstances;
-	
-        private void InitStatus(StatusFrame frame) {
-            // Destroy children 
-            if (_playerInstances != null) foreach (var instance in _playerInstances.Values)
-                Destroy(instance);
-        
-            var playerInstances = new Dictionary<string, GameObject>();
-            foreach (var initStatus in frame.status) {
-                // Create GameObject
-                var position = new Vector3(initStatus.Position.x, 0f, initStatus.Position.y);
-                var player = Instantiate(playerPrefab, transform);
-                player.transform.position = position;
-                player.name = initStatus.userId;
-                // Set the initial value of the shadowController.lerpSpeed
-                var shadowController = player.GetComponent<ShadowController>();
-                if (shadowController == null)
-                {
-                    shadowController = player.AddComponent<ShadowController>();
-                    shadowController.lerpSpeed = lerpSpeed;
-                }
-                shadowController.RemotePosition = initStatus.Position;
-                shadowController.shadowPosition = initStatus.Position;
-                // Update LocalController's GameObject
-                Debug.Log("_localController: " + _localController);
-                if (_localController != null)
-                    _localController.PlayerGameObject = player;
-                
-                playerInstances.Add(initStatus.userId, player);
-            }
-            _playerInstances = playerInstances;
-        }
-	
         private void ApplyAction(ActionFrame actionFrame)
         {
             // Update GameObjects' status
             foreach (var action in actionFrame.actions)
             {
-                var gameObj = _playerInstances[action.userId];
+                if (name != action.userId) continue;
                 var movement = action.Movement;
-                var shadowController = gameObj.GetComponent<ShadowController>();
-                shadowController.RemotePosition += movement * moveSpeed;
+                _shadowController.RemotePosition += movement * moveSpeed;
+                return;
             }
-        }
-
-        private void OnGUI()
-        {
-            if (_wsManager.Status != NetworkManager.RoomStatus.Idle) return;
-            GUI.DrawTexture(_fullscreenRect, Texture2D.whiteTexture, ScaleMode.StretchToFill);
-            GUI.Label(_fullscreenRect, "Waiting Player", _labelStyle);
         }
     }
 }
